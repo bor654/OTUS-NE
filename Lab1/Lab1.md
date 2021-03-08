@@ -54,7 +54,37 @@ R1(config)#line vty 0 4
 R1(config-line)#password cisco
 R1(config-line)#login
 R1(config)#service password-encryption 
+R1(config)# banner login *Authorized access only.*
+R1#clock set 22:26:00 08 March 2021
+R1#copy running-config startup-config 
+Destination filename [startup-config]? 
+Building configuration...
+[OK]
 ```
    
-</details>
+   </details>
 
+<details>
+   <summary>Выполнена базовая настройка коммутаторов</summary>
+   
+   ```
+На примере S1:
+   
+Switch>en
+Switch#conf t
+Switch(config)#hostname S1
+S1(config)#no ip domain-lookup 
+S1(config)#enable password class
+S1(config)#line vty 0 4
+S1(config-line)#password cisco
+S1(config-line)#login
+S1(config)#line console 0
+S1(config-line)#password cisco
+S1(config-line)#login
+S1(config)#service password-encryption 
+S1(config)#banner motd *Authorized access only.*
+S1#clock set 22:44:00 08 March 2021
+S1#copy running-config startup-config
+   ```
+   
+   </details>
