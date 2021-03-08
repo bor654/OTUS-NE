@@ -9,8 +9,7 @@
 5. Проверить связность между VLAN 
 
 ### Схема
-
-   ![Scheme](C:\Users\mbor6\Documents\Labs Cisco\Lab1\Scheme.PNG)
+![Scheme](https://user-images.githubusercontent.com/80280218/110362348-3b918c00-8052-11eb-9711-264b50c26cc1.PNG)
 
 ### Адресация
 
@@ -37,7 +36,9 @@
 
 #### 1. Построить сеть и выполнить базовую настройку
 
-<details><summary>Выполнена базовая настройка роутера</summary>
+<details>
+<summary>Выполнена базовая настройка роутера</summary>
+
 ```
 Router>en
 Router#configure terminal 
@@ -54,5 +55,6 @@ R1(config-line)#password cisco
 R1(config-line)#login
 R1(config)#service password-encryption 
 ```
+   
 </details>
 
