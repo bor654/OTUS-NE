@@ -37,7 +37,7 @@
 #### 1. Построить сеть и выполнить базовую настройку
 
 <details>
-<summary>Выполнена базовая настройка роутера</summary>
+<summary>Выполнена базовая настройка роутера.</summary>
 
 ```
 Router>en
@@ -65,7 +65,7 @@ Building configuration...
    </details>
 
 <details>
-   <summary>Выполнена базовая настройка коммутаторов</summary>
+   <summary>Выполнена базовая настройка коммутаторов.</summary>
    
    ```
 На примере S1:
@@ -88,3 +88,5 @@ S1#copy running-config startup-config
    ```
    
    </details>
+Выполнена настройка IP адресов на ПК.
+
