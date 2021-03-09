@@ -75,7 +75,7 @@ Switch#conf t
 Switch(config)#hostname S1
 S1(config)#no ip domain-lookup 
 S1(config)#enable password class
-S1(config)#line vty 0 4
+S1(config)#line vty 0 15
 S1(config-line)#password cisco
 S1(config-line)#login
 S1(config)#line console 0
@@ -245,3 +245,9 @@ Vlan1                  unassigned      YES unset  administratively down down
 
 </details>
 
+
+[R1 config](https://github.com/bor654/OTUS-NE/blob/main/Lab1/R1_startup-config.txt)
+
+[S1 config](https://github.com/bor654/OTUS-NE/blob/main/Lab1/S1_startup-config.txt)
+
+[S2 config](https://github.com/bor654/OTUS-NE/blob/main/Lab1/S2_startup-config.txt)
