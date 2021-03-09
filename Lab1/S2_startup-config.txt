@@ -137,8 +137,6 @@ line con 0
 line vty 0 4
  password 7 0822455D0A16
  login
-line vty 5 15
- login
 !
 !
 !
