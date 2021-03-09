@@ -9,7 +9,7 @@
 5. Проверить связность между VLAN 
 
 ### Схема
-![Scheme](https://user-images.githubusercontent.com/80280218/110362348-3b918c00-8052-11eb-9711-264b50c26cc1.PNG)
+![изображение](https://user-images.githubusercontent.com/80280218/110524370-57fdf900-8124-11eb-95e0-b5dcaee6cd50.png)
 
 ### Адресация
 
@@ -175,7 +175,7 @@ interface FastEthernet0/1
    
 #### 4. Настроить машрутизацию между VLAN на роутере
    
-     <details>
+<details>
 <summary> R1: </summary>
    
    ```
@@ -207,9 +207,12 @@ GigabitEthernet0/0/1.8 unassigned      YES unset  up                    up
 Vlan1                  unassigned      YES unset  administratively down down
  ```
    
-   </details>
+</details>
    
 #### 5. Проверить связность между VLAN
+
+<details>
+<summary> Для PC-A: </summary>
 
    Пинг с PC-A до шлюза
    
@@ -223,6 +226,11 @@ Vlan1                  unassigned      YES unset  administratively down down
    
    ![изображение](https://user-images.githubusercontent.com/80280218/110523248-e40f2100-8122-11eb-9fb1-a2727519e113.png)
 
+</details>
+
+<details>
+<summary> Для PC-B: </summary>
+
    Пинг с PC-B до шлюза
    
    ![изображение](https://user-images.githubusercontent.com/80280218/110523616-6992d100-8123-11eb-8159-4448996640d0.png)
@@ -235,4 +243,5 @@ Vlan1                  unassigned      YES unset  administratively down down
    
    ![изображение](https://user-images.githubusercontent.com/80280218/110523861-bb3b5b80-8123-11eb-875f-69b480afd2dd.png)
 
+</details>
 
