@@ -1,0 +1,105 @@
+
+!
+! Last configuration change at 12:17:02 EET Mon May 3 2021
+!
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+service compress-config
+!
+hostname S2
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 5 $1$GGdV$53QpNeXUmNKrF32LZQTz91
+!
+no aaa new-model
+clock timezone EET 2 0
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+ip cef
+no ipv6 cef
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Ethernet0/0
+ no shutdown
+ switchport trunk allowed vlan 1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface Ethernet0/1
+ no shutdown
+ switchport trunk allowed vlan 1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface Ethernet0/2
+ no shutdown
+ switchport trunk allowed vlan 1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface Ethernet0/3
+ no shutdown
+ switchport trunk allowed vlan 1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface Vlan1
+ no shutdown
+ ip address 192.168.1.2 255.255.255.0
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+!
+control-plane
+!
+banner motd Authorized access only.
+!
+line con 0
+ exec-timeout 60 0
+ password 7 045802150C2E
+ logging synchronous
+ login
+line aux 0
+line vty 0 4
+ password 7 121A0C041104
+ absolute-timeout 1000
+ login
+!
+!
+end
