@@ -1,0 +1,103 @@
+
+!
+! Last configuration change at 16:03:07 EET Mon May 3 2021
+! NVRAM config last updated at 16:59:38 EET Mon May 3 2021
+!
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+service compress-config
+!
+hostname S1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 5 $1$W75L$F9B2vHk4nFdfXjznNJdc90
+!
+no aaa new-model
+clock timezone EET 2 0
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+ip cef
+no ipv6 cef
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Ethernet0/0
+ no shutdown
+ switchport trunk allowed vlan 100,200,1000
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 1000
+ switchport mode trunk
+!
+interface Ethernet0/1
+ no shutdown
+ switchport access vlan 100
+ switchport mode access
+!
+interface Ethernet0/2
+ no shutdown
+ switchport access vlan 999
+ switchport mode access
+!
+interface Ethernet0/3
+ no shutdown
+ switchport access vlan 999
+ switchport mode access
+!
+interface Vlan200
+ no shutdown
+ description mgmt
+ ip address 192.168.1.66 255.255.255.224
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+!
+control-plane
+!
+banner motd Authorized access only.
+!
+line con 0
+ password 7 030752180500
+ logging synchronous
+ login
+line aux 0
+line vty 0 4
+ password 7 060506324F41
+ login
+!
+!
+end
