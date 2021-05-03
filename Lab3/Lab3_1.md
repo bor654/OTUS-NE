@@ -350,3 +350,9 @@ DHCPACK              0
 ```
 
 </details>
+
+
+[S1 config](https://github.com/bor654/OTUS-NE/blob/57d5e38647ee2e5c5808aaf25cd74f29db47282c/Lab3/S1_cfg)  
+[S2 config](https://github.com/bor654/OTUS-NE/blob/ecb964c663ea26b4eb9b079bccc7cd04860b17ef/Lab3/S2_cfg)  
+[R1 config](https://github.com/bor654/OTUS-NE/blob/241cf164e2605e76206bae8efd291848daecf119/Lab3/R1_cfg)  
+[R1 config](https://github.com/bor654/OTUS-NE/blob/18acab581ad653b96940945cf53b02372bc6b577/Lab3/R2_cfg)  
