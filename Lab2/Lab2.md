@@ -308,6 +308,9 @@ Et0/3               Altn BLK 100       128.4    Shr Peer(STP)
 3.	Если оба значения на двух портах равны, каким будет следующее значение, которое использует протокол STP при выборе порта? **Приоритет порта**
 
 
+
 [S1 config](https://github.com/bor654/OTUS-NE/blob/9c49c4c566bb509e8365648f50d6a8ebbf15ef22/Lab2/S1_cfg)
+
 [S2 config](https://github.com/bor654/OTUS-NE/blob/9c49c4c566bb509e8365648f50d6a8ebbf15ef22/Lab2/S2_cfg)
+
 [S3 config](https://github.com/bor654/OTUS-NE/blob/9c49c4c566bb509e8365648f50d6a8ebbf15ef22/Lab2/S3_cfg)
