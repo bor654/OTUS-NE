@@ -53,7 +53,6 @@ Success rate is 80 percent (4/5), round-trip min/avg/max = 1/1/1 ms
 
 # 2.	Определение корневого моста
 
-</details>
 
 <details> <summary>Данные протокола spanning-tree</summary>
   
@@ -128,7 +127,6 @@ Et0/3               Root FWD 100       128.4    Shr Peer(STP)
 
 </details>
 
-</details>
 
 <details> <summary>Заполненная схема</summary>
 
@@ -169,8 +167,6 @@ Et0/3               Root FWD 100       128.4    Shr Peer(STP)
 S3(config)#interface Ethernet 0/3
 S3(config-if)#spanning-tree cost 18
 ```
-
-</details>
 
 
 <details> <summary>Изменившееся дерево</summary>
@@ -219,3 +215,94 @@ Et0/3               Root FWD 18        128.4    Shr Peer(STP)
 ```
   
 </details>  
+
+
+# 4.  Наблюдение за процессом выбора протоколом STP порта, исходя из приоритета портов
+
+<details> <summary>Данные протокола spanning-tree после включения всех портов</summary>
+  
+
+
+```
+S1#show spanning-tree
+
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     aabb.cc00.1000
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     aabb.cc00.1000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Et0/0               Desg FWD 100       128.1    Shr
+Et0/1               Desg FWD 100       128.2    Shr
+Et0/2               Desg FWD 100       128.3    Shr
+Et0/3               Desg FWD 100       128.4    Shr
+
+
+S2#show spanning-tree
+
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     aabb.cc00.1000
+             Cost        100
+             Port        1 (Ethernet0/0)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     aabb.cc00.2000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Et0/0               Root FWD 100       128.1    Shr
+Et0/1               Altn BLK 100       128.2    Shr
+Et0/2               Desg FWD 100       128.3    Shr
+Et0/3               Desg FWD 100       128.4    Shr
+
+
+S3#show spanning-tree
+
+VLAN0001
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32769
+             Address     aabb.cc00.1000
+             Cost        100
+             Port        3 (Ethernet0/2)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     aabb.cc00.3000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Et0/0               Altn BLK 100       128.1    Shr Peer(STP)
+Et0/1               Altn BLK 100       128.2    Shr Peer(STP)
+Et0/2               Root FWD 100       128.3    Shr Peer(STP)
+Et0/3               Altn BLK 100       128.4    Shr Peer(STP)
+```
+</details>
+
+Какой порт выбран протоколом STP в качестве порта корневого моста на каждом коммутаторе некорневого моста? **S2: E0/0 S3: E0/2**
+
+Почему протокол STP выбрал эти порты в качестве портов корневого моста на этих коммутаторах? **По наименьшему значению приоритета(само значение приоритета одинаковый, но номер порта меньше).**
+
+
+
+# 5.  Вопросы для повторения
+
+1.	Какое значение протокол STP использует первым после выбора корневого моста, чтобы определить выбор порта? **Стоимость порта**
+
+2.	Если первое значение на двух портах одинаково, какое следующее значение будет использовать протокол STP при выборе порта? **BID**
+
+3.	Если оба значения на двух портах равны, каким будет следующее значение, которое использует протокол STP при выборе порта? **Приоритет порта**
